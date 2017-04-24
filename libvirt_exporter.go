@@ -23,7 +23,7 @@ import (
 
 	libvirt "github.com/libvirt/libvirt-go"
 
-	"github.com/kumina/libvirt_exporter/libvirt_schema"
+	"github.com/mvtks/nova_exporter/libvirt_schema"
 )
 
 var (
