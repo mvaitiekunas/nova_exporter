@@ -13,37 +13,56 @@
 
 package libvirt_schema
 
+//Domain libvirt xml structure
 type Domain struct {
-	Devices Devices `xml:"devices"`
+	Devices  Devices  `xml:"devices"`
+	Metadata Metadata `xml:"metadata"`
 }
 
+//Metadata xml structure of domain
+type Metadata struct {
+	NovaInstance NovaInstance `xml:"instance"`
+}
+
+//NovaInstance xml structure of domain
+type NovaInstance struct {
+	InstanceName string `xml:"name"`
+}
+
+//Devices xml structure of domain
 type Devices struct {
 	Disks      []Disk      `xml:"disk"`
 	Interfaces []Interface `xml:"interface"`
 }
 
+//Disk xml structure of domain
 type Disk struct {
 	Source DiskSource `xml:"source"`
 	Target DiskTarget `xml:"target"`
 }
 
+//DiskSource xml structure of domain
 type DiskSource struct {
 	File string `xml:"file,attr"`
 }
 
+//DiskTarget xml structure of domain
 type DiskTarget struct {
 	Device string `xml:"dev,attr"`
 }
 
+//Interface xml structure of domain
 type Interface struct {
 	Source InterfaceSource `xml:"source"`
 	Target InterfaceTarget `xml:"target"`
 }
 
+//InterfaceSource xml structure of domain
 type InterfaceSource struct {
 	Bridge string `xml:"bridge,attr"`
 }
 
+//InterfaceTarget xml structure of domain
 type InterfaceTarget struct {
 	Device string `xml:"dev,attr"`
 }
