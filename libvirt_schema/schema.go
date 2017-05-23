@@ -39,6 +39,7 @@ type Devices struct {
 type Disk struct {
 	Source DiskSource `xml:"source"`
 	Target DiskTarget `xml:"target"`
+	Type   string     `xml:"type,attr"`
 }
 
 //DiskSource xml structure of domain
